@@ -1,0 +1,31 @@
+﻿@model MvcCv.Models.Entity.TblHobilerim
+
+@{
+    ViewBag.Title = "HobiGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2 style="text-align: center; font-weight: bold; color: #343a40;">Aktivite Bilgisi Güncelleme Paneli</h2>
+<br />
+<a href="/Hobi/Index/" class="btn btn-primary" style="float: right;">Geri Dön</a>
+<br />
+
+<form method="post">
+
+    <div class="form-outline mb-4">
+        @Html.Label("Aktivite")
+        @Html.TextBoxFor(model => model.Aciklama1, new { @class = "form-control", placeholder = "Lütfen aktivite giriniz" })
+        @Html.ValidationMessageFor(model => model.Aciklama1, "", new { @style = "color: red" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Açıklama")
+        @Html.TextAreaFor(model => model.Aciklama2, new { @class = "form-control", placeholder = "Lütfen aktivite açıklaması giriniz" })
+        @Html.ValidationMessageFor(model => model.Aciklama2, "", new { @style = "color: red" })
+    </div>
+
+    <!-- Submit button -->
+    <button class="btn btn-success btn-block mb-4">Değişiklikleri Kaydet</button>
+</form>
+

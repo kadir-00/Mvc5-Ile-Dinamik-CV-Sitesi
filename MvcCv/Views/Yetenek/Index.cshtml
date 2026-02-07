@@ -1,0 +1,126 @@
+﻿@using MvcCv.Models.Entity
+@model List<TblYeteneklerim>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{ string renk = ""; }
+@{ string labelrenk = ""; }
+
+<br />
+<h2 style="text-align: center; font-weight: bold; color: #343a40;">Dinamik CV Sitesi Yetenek Listesi Admin Paneli</h2>
+<br />
+
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title" style="color: #343a40;">Yetenek Listem</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">ID</th>
+                                            <th>Teknoloji</th>
+                                            <th>Derece</th>
+                                            <th style="width: 40px">Oran</th>
+                                            <th>Düzenle</th>
+                                            <th>Sil</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            if (item.Oran >= 0 && item.Oran <= 50)
+                                            {
+                                                renk = "progress-bar bg-danger";
+                                                labelrenk = "badge bg-danger";
+                                            }
+                                            if (item.Oran >= 51 && item.Oran <= 70)
+                                            {
+                                                renk = "progress-bar bg-warning";
+                                                labelrenk = "badge bg-warning";
+                                            }
+                                            if (item.Oran >= 71 && item.Oran <= 84)
+                                            {
+                                                renk = "progress-bar bg-primary";
+                                                labelrenk = "badge bg-primary";
+                                            }
+                                            if (item.Oran >= 85 && item.Oran <= 100)
+                                            {
+                                                renk = "progress-bar bg-success";
+                                                labelrenk = "badge bg-success";
+                                            }
+                                            <tr>
+                                                <td>@item.ID</td>
+                                                <td style="width: 35%">@item.Yetenek</td>
+                                                <td>
+                                                    <div class="progress progress-xs">
+                                                        <div class="@renk" style="width: @item.Oran%"></div>
+                                                    </div>
+                                                </td>
+                                                <td style="width: 5%"><span class="@labelrenk" style="width: 70%">@item.Oran%</span></td>
+                                                <td style="width: 7%"><a href="/Yetenek/YetenekGetir/@item.ID" class="btn btn-outline-info btn-sm"><i class="fas fa-pencil-alt" style="margin-right: 7px;"></i>Düzenle</a></td>
+
+                                                <td style="width: 5%"><a href="/Yetenek/YetenekSil/@item.ID" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash" style="margin-right: 7px;"></i>Sil</a></td>
+                                            </tr>
+                                        }
+
+
+                                    </tbody>
+                                </table>
+                                <br />
+                                <a href="/Yetenek/YetenekEkle/" class="btn btn-success" data-toggle="modal" data-target="#Modal1">Yeni Yetenek Ekle</a>
+
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+
+        <div class="modal" id="Modal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 style="text-align: center; font-weight: bold; color: #343a40;">Yeni Yetenek Bilgisi Ekleme Penceresi</h2>
+                        <br />
+                        <a href="/Yetenek/Index/" style="float: right;"><i class="fas fa-times"></i></a>
+                        <br />
+                    </div>
+                    <form method="post" action="/Yetenek/YetenekEkle/">
+                        <div class="modal-body">
+                            <label class="form-label" for="form6Example3">Teknoloji Adı</label>
+
+                            <input type="text" placeholder="Lütfen teknoloji adını giriniz" name="Yetenek" id="form6Example3" class="form-control" required />
+
+                            <br />
+                            <label class="form-label" for="form6Example4">Yetenek Başarı Oranı</label>
+
+                            <input type="text" placeholder="Lütfen yüzdesel bir başarı oranı giriniz (0 -100 arasında bir değer)" name="Oran" id="form6Example4" class="form-control" required />
+                        </div>
+
+                        <button class="btn btn-success mb-2 mr-3" style="float:right">Yeni Sosyal Medya Bilgisini Kaydet</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

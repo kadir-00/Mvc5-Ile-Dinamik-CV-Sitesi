@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "AdminEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2 style="text-align: center; font-weight: bold; color: #343a40;">Yeni Kullanıcı Ekleme Paneli</h2>
+<br />
+<a href="/Admin/Index/" class="btn btn-primary" style="float: right;">Geri Dön</a>
+<br />
+<form method="post" class="form-group">
+
+
+    <!-- Text input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="form6Example3">Kullanıcı Adı</label>
+
+        <input type="text" placeholder="Lütfen kullanıcı adını giriniz" name="KullaniciAdi" id="form6Example3" class="form-control" required />
+    </div>
+
+    <!-- Text input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="form6Example4">Şifre</label>
+
+        <input type="password" placeholder="Lütfen şifre giriniz" name="Sifre" id="form6Example4" class="form-control"
+               required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,}"
+               title="Şifre en az 8 karakter olmalı ve en az bir büyük harf, bir küçük harf, bir rakam ve bir noktalama işareti içermelidir." />
+    </div>
+
+
+    <!-- Submit button -->
+    <button data-mdb-ripple-init class="btn btn-success btn-block mb-4">Yeni Kullanıcıyı Kaydet</button>
+</form>
+

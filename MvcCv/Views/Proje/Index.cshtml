@@ -1,0 +1,101 @@
+﻿@using MvcCv.Models.Entity
+@model List<TblProjelerim>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2 style="text-align: center; font-weight: bold; color: #343a40;">Dinamik CV Sitesi Proje Listesi Admin Paneli</h2>
+<br />
+
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- /.col -->
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header p-2">
+                            <br />
+                            <a href="/Proje/ProjeEkle/" class="btn btn-success" style="float: right;" data-toggle="modal" data-target="#Modal1">Yeni Proje Ekle</a>
+
+                            <br />
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tab-pane" id="timeline">
+                                <!-- The timeline -->
+                                <div class="timeline timeline-inverse">
+                                    @foreach (var item in Model)
+                                    {
+                                        <!-- timeline time label -->
+                                        <div class="time-label">
+                                            <span class="bg-primary" style="width:40px">
+                                                <a href="@item.ProjeLink"><i class="fab fa-github" style="font-size:30px"></i></a>
+                                            </span>
+                                        </div>
+                                        <!-- /.timeline-label -->
+                                        <!-- timeline item -->
+                                        <div>
+                                            <i class="fas fa-code bg-warning"></i>
+                                            <div class="timeline-item">
+                                                <h3 class="timeline-header"> @item.ProjeAd</h3>
+                                                <div class="timeline-body">
+                                                    <strong> Proje Hakkında Bilgiler ve Kullanılan Teknolojiler: </strong>  @item.ProjeAciklama
+                                                </div>
+                                                <div class="timeline-footer">
+                                                    <a href="/Proje/ProjeGetir/@item.ID" class="btn btn-primary btn-sm">Düzenle</a>
+                                                    <a href="/Proje/ProjeSil/@item.ID" class="btn btn-danger btn-sm">Sil</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.tab-content -->
+                    </div><!-- /.card-body -->
+                </div>
+                <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+
+    <div class="modal" id="Modal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 style="text-align: center; font-weight: bold; color: #343a40;">Yeni Proje Ekleme Penceresi</h2>
+                    <br />
+                    <a href="/Proje/Index/" style="float: right;"><i class="fas fa-times"></i></a>
+                    <br />
+                </div>
+                <form method="post" action="/Proje/ProjeEkle/">
+                    <div class="modal-body">
+
+                        <label>Proje Adı</label>
+                        <input type="text" name="ProjeAd" class="form-control" placeholder = "Lütfen Proje Adı giriniz" required />
+                        <br />
+                        <label>Proje Github Linki</label>
+                        <input type="text" name="ProjeLink" class="form-control" placeholder = "Lütfen proje linkini giriniz"  required />
+
+                        <br />
+                        <label>Proje Açıklaması</label>
+                        <input type="text" name="ProjeAciklama" class="form-control" placeholder = "Lütfen proje açıklaması giriniz"  required />
+                    </div>
+
+                    <button class="btn btn-success mb-2 mr-3" style="float:right">Yeni Projeyi Kaydet</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

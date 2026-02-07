@@ -1,0 +1,79 @@
+﻿@using MvcCv.Models.Entity
+@model List<Tbliletisim>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2 style="text-align: center; font-weight: bold; color: #343a40;">Dinamik CV Sitesi Mesajlar Bölümü Admin Paneli</h2>
+<br />
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- /.col -->
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header p-2">
+                         
+
+                            <br />
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tab-pane" id="timeline">
+                                <!-- The timeline -->
+                                <div class="timeline timeline-inverse">
+                                    @foreach (var item in Model)
+                                    {
+                                        <!-- timeline time label -->
+                                        <div class="time-label">
+                                            <span class="bg-primary">
+                                                @if (item.Tarih != null)
+                                                {
+                                                    @item.Tarih.Value.ToString("dd.MM.yyyy")
+                                                }
+                                            </span>
+                                        </div>
+                                        <!-- /.timeline-label -->
+                                        <!-- timeline item -->
+                                        <div>
+                                            <i class="fas fa-comment bg-success"></i>
+                                            <div class="timeline-item">
+
+                                                <span class="time" style="font-size:15px"><i class="far fa-envelope"></i> @item.Mail</span>
+                                                <h3 class="timeline-header"><span><strong>@item.Adsoyad</strong></span></h3>
+                                                <div class="timeline-header">
+                                                    <span> <strong> Konu: </strong>   @item.Konu</span>
+                                                </div>
+                                                <div class="timeline-body">
+                                                    <strong> Mesaj İçeriği: </strong>  @item.Mesaj
+                                                </div>
+
+                                                <div class="timeline-footer">
+                                                    <a href="/Message/MesajSil/@item.ID" class="btn btn-danger btn-sm">Sil</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    }
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.tab-content -->
+                    </div><!-- /.card-body -->
+                </div>
+                <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+﻿@model MvcCv.Models.Entity.TblAdmin
+
+@{
+    ViewBag.Title = "AdminGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2 style="text-align: center; font-weight: bold; color: #343a40;">Kullanıcı Bilgileri Güncelleme Paneli</h2>
+<br />
+<a href="/Admin/Index/" class="btn btn-primary" style="float: right;">Geri Dön</a>
+<br />
+<form method="post">
+
+    <div class="form-outline mb-4">
+        @Html.Label("Kullanıcı Adı")
+        @Html.TextBoxFor(model => model.KullaniciAdi, new { @class = "form-control", placeholder = "Lütfen kullanıcı adını giriniz" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Şifre")
+        @Html.TextBoxFor(model => model.Sifre, new
+        {
+            @class = "form-control",
+            @placeholder = "Lütfen şifre giriniz",
+            @type = "password",
+            @pattern = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\W]).{8,}",
+            @title = "Şifre en az 8 karakter olmalı ve en az bir büyük harf, bir küçük harf, bir rakam ve bir noktalama işareti içermelidir."
+        })
+    </div>
+
+    <!-- Submit button -->
+    <button class="btn btn-success btn-block mb-4">Değişiklikleri Kaydet</button>
+</form>
+
+

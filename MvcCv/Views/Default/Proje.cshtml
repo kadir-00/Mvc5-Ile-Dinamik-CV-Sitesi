@@ -1,0 +1,24 @@
+﻿@using MvcCv.Models.Entity
+@model List<TblProjelerim>
+
+
+<div class="resume-section-content">
+    <h2 class="mb-5">Yazılım Projelerim</h2>
+    @foreach (var item in Model)
+    {
+        <ul class="fa-ul mb-0">
+            <li>
+                <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                <p style="font-weight:bold; font-size: 20px;">@item.ProjeAd</p>
+                <a href="@item.ProjeLink" class="mb-0" style="font-weight:600; font-size: 17px;">Proje Linki İçin Tıklayınız</a>
+
+                <p class="mb-0"><span style="font-weight:600; font-size: 15px;">Proje Açıklaması: </span>@item.ProjeAciklama</p>
+
+                <br />
+
+            </li>
+
+        </ul>
+    }
+
+</div>

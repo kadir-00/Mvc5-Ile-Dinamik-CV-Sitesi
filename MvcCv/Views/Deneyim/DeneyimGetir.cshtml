@@ -1,0 +1,40 @@
+﻿@model MvcCv.Models.Entity.TblDeneyimlerim
+@{
+    ViewBag.Title = "DeneyimGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2 style="text-align: center; font-weight: bold; color: #343a40;">Deneyim Güncelleme Paneli</h2>
+<br />
+<a href="/Deneyim/Index/" class="btn btn-primary" style="float: right;">Geri Dön</a>
+<br />
+<form method="post">
+
+    <!-- Şirket Adı input -->
+    <div class="form-outline mb-4">
+        @Html.Label("Şirket Adı")
+        @Html.TextBoxFor(model => model.Baslik, new { @class = "form-control", placeholder = "Lütfen şirket adını giriniz" })
+    </div>
+
+    <!-- Pozisyon | Ünvan input -->
+    <div class="form-outline mb-4">
+        @Html.Label("Pozisyon | Ünvan")
+        @Html.TextBoxFor(model => model.AltBaslik, new { @class = "form-control", placeholder = "Lütfen Pozisyon bilgisini giriniz" })
+    </div>
+
+    <!-- Tarih input -->
+    <div class="form-outline mb-4">
+        @Html.Label("Tarih")
+        @Html.TextBoxFor(model => model.Tarih, new { @class = "form-control", placeholder = "Lütfen Başlangıç ve bitiş tarihlerini aa.yyyy formatında giriniz" })
+    </div>
+
+    <!-- İş Akışı Açıklaması textarea -->
+    <div class="form-outline mb-4">
+        @Html.Label("İş Akışı Açıklaması")
+        @Html.TextAreaFor(model => model.Aciklama, new { @class = "form-control", placeholder = "Deneyiminizle ilgili açıklamayı buraya yazınız", rows = 4 })
+    </div>
+
+    <!-- Submit button -->
+    <button class="btn btn-success btn-block mb-4">Değişiklikleri Kaydet</button>
+</form>

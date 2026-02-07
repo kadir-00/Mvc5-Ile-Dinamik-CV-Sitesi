@@ -1,0 +1,45 @@
+﻿@model MvcCv.Models.Entity.TblEgitimlerim
+
+@{
+    ViewBag.Title = "EgitimGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2 style="text-align: center; font-weight: bold; color: #343a40;">Eğitim Güncelleme Paneli</h2>
+<br />
+<a href="/Egitim/Index/" class="btn btn-primary" style="float: right;">Geri Dön</a>
+<br />
+
+<form method="post">
+
+    <div class="form-outline mb-4">
+        @Html.Label("Bölüm - Meslek")
+        @Html.TextBoxFor(model => model.Baslik, new { @class = "form-control", placeholder = "Lütfen şirket adını giriniz" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Okul - Kurum")
+        @Html.TextBoxFor(model => model.AltBaslik1, new { @class = "form-control", placeholder = "Lütfen Pozisyon bilgisini giriniz" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Konum")
+        @Html.TextBoxFor(model => model.AltBaslik2, new { @class = "form-control", placeholder = "Deneyiminizle ilgili açıklamayı buraya yazınız", rows = 4 })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("GNO")
+        @Html.TextBoxFor(model => model.GNO, new { @class = "form-control", placeholder = "Deneyiminizle ilgili açıklamayı buraya yazınız", rows = 4 })
+    </div>
+
+
+    <div class="form-outline mb-4">
+        @Html.Label("Tarih")
+        @Html.TextBoxFor(model => model.Tarih, new { @class = "form-control", placeholder = "Lütfen Başlangıç ve bitiş tarihlerini aa.yyyy formatında giriniz" })
+    </div>
+
+    <!-- Submit button -->
+    <button class="btn btn-success btn-block mb-4">Değişiklikleri Kaydet</button>
+</form>
+

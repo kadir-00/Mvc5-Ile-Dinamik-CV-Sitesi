@@ -1,0 +1,32 @@
+﻿@model MvcCv.Models.Entity.TblYeteneklerim
+
+@{
+    ViewBag.Title = "YetenekGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2 style="text-align: center; font-weight: bold; color: #343a40;">Yetenek Güncelleme Paneli</h2>
+<br />
+
+<a href="/Yetenek/Index/" class="btn btn-primary" style="float: right;">Geri Dön</a>
+<br />
+<form method="post">
+
+    <!-- Yetenek input -->
+    <div class="form-outline mb-4">
+        @Html.Label("Teknoloji Adı")
+        @Html.TextBoxFor(model => model.Yetenek, new { @class = "form-control", placeholder = "Lütfen Teknoloji adını giriniz" })
+    </div>
+
+    <!-- Oran input -->
+    <div class="form-outline mb-4">
+        @Html.Label("Pozisyon | Ünvan")
+        @Html.TextBoxFor(model => model.Oran, new { @class = "form-control", placeholder = "Lütfen yüzdesel bir başarı oranı giriniz (0 -100 arasında bir değer)" })
+    </div>
+
+
+    <!-- Submit button -->
+    <button class="btn btn-success btn-block mb-4">Değişiklikleri Kaydet</button>
+</form>
+

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "YetenekEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2 style="text-align: center; font-weight: bold; color: #343a40;">Yeni Yetenek Ekleme Paneli</h2>
+<br />
+<a href="/Yetenek/Index/" class="btn btn-primary" style="float: right;">Geri Dön</a>
+<br />
+<form method="post" class="form-group">
+
+
+    <!-- Text input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="form6Example3">Teknoloji Adı</label>
+
+        <input type="text" placeholder="Lütfen teknoloji adını giriniz" name="Yetenek" id="form6Example3" class="form-control" required />
+    </div>
+
+    <!-- Text input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+        <label class="form-label" for="form6Example4">Yetenek Başarı Oranı</label>
+
+        <input type="text" placeholder="Lütfen yüzdesel bir başarı oranı giriniz (0 -100 arasında bir değer)" name="Oran" id="form6Example4" class="form-control" required />
+    </div>
+
+
+    <!-- Submit button -->
+    <button data-mdb-ripple-init class="btn btn-success btn-block mb-4">Yeni Yeteneği Kaydet</button>
+</form>
+

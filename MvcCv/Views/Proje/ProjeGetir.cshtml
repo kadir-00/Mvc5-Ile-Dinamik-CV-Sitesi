@@ -1,0 +1,38 @@
+﻿@model MvcCv.Models.Entity.TblProjelerim
+
+@{
+    ViewBag.Title = "ProjeGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2 style="text-align: center; font-weight: bold; color: #343a40;">Proje Güncelleme Paneli</h2>
+<br />
+<a href="@Url.Action("Index", "Proje")" class="btn btn-primary" style="float: right;">Geri Dön</a>
+
+<br />
+<form method="post">
+
+    <div class="form-outline mb-4">
+        @Html.Label("Proje Adı")
+        @Html.TextBoxFor(model => model.ProjeAd, new { @class = "form-control", placeholder = "Lütfen Proje Adı giriniz" })
+        @Html.ValidationMessageFor(model => model.ProjeAd, "", new { @style = "color: red" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Proje Link")
+        @Html.TextBoxFor(model => model.ProjeLink, new { @class = "form-control", placeholder = "Lütfen proje linkini giriniz" })
+        @Html.ValidationMessageFor(model => model.ProjeLink, "", new { @style = "color: red" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Proje Açıklaması")
+        @Html.TextAreaFor(model => model.ProjeAciklama, new { @class = "form-control", placeholder = "Lütfen proje açıklaması giriniz" })
+        @Html.ValidationMessageFor(model => model.ProjeAciklama, "", new { @style = "color: red" })
+    </div>
+
+    <!-- Submit button -->
+    <button class="btn btn-success btn-block mb-4">Değişiklikleri Kaydet</button>
+</form>
+
+

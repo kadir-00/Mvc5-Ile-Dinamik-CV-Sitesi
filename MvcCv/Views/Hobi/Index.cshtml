@@ -1,0 +1,72 @@
+﻿@using MvcCv.Models.Entity
+@model List<TblHobilerim>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2 style="text-align: center; font-weight: bold; color: #343a40;">Dinamik CV Sitesi Hobi Listesi Admin Paneli</h2>
+<br />
+
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title" style="color: #343a40;">Hobi Listem</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Aktivite</th>
+                                            <th>Açıklama</th>                                        
+                                            <th>Güncelle</th>
+                                            <th>Sil</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.ID</td>
+                                                <td>@item.Aciklama1</td>
+                                                <td>@item.Aciklama2</td>
+                                          
+                                                <td style="width: 7%"><a href="/Hobi/HobiGetir/@item.ID" class="btn btn-outline-info btn-sm"><i class="fas fa-pencil-alt" style="margin-right: 7px;"></i>Düzenle</a></td>
+
+                                                <td style="width: 5%"><a href="/Hobi/HobiSil/@item.ID" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash" style="margin-right: 7px;"></i>Sil</a></td>
+                                            </tr>
+                                        }
+
+
+                                    </tbody>
+                                </table>
+                                <br />
+                                <a href="/Hobi/HobiEkle/" class="btn btn-success">Yeni Aktivite Ekle</a>
+
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+</body>
+</html>
+
+

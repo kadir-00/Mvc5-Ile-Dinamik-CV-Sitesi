@@ -1,0 +1,64 @@
+﻿@model MvcCv.Models.Entity.TblHakkimda
+
+@{
+    ViewBag.Title = "HakkimdaEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2 style="text-align: center; font-weight: bold; color: #343a40;">Yeni Kişi Bilgisi Ekleme Paneli</h2>
+<br />
+<a href="/Hakkimda/Index/" class="btn btn-primary" style="float: right;">Geri Dön</a>
+
+<br />
+<form method="post" class="form-group">
+
+    <div class="form-outline mb-4">
+        @Html.Label("Ad")
+        @Html.TextBoxFor(model => model.Ad, new { @class = "form-control", placeholder = "Lütfen adınızı giriniz" })
+        @Html.ValidationMessageFor(model => model.Ad, "", new { @style = "color: red" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Soyad")
+        @Html.TextBoxFor(model => model.Soyad, new { @class = "form-control", placeholder = "Lütfen soyadınızı giriniz" })
+        @Html.ValidationMessageFor(model => model.Soyad, "", new { @style = "color: red" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Adres")
+        @Html.TextBoxFor(model => model.Adres, new { @class = "form-control", placeholder = "Lütfen Adres giriniz" })
+        @Html.ValidationMessageFor(model => model.Adres, "", new { @style = "color: red" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Telefon Numarası")
+        @Html.TextBoxFor(model => model.Telefon, new { @class = "form-control", placeholder = "Lütfen telefon numaranızı giriniz" })
+        @Html.ValidationMessageFor(model => model.Telefon, "", new { @style = "color: red" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Mail Adresi")
+        @Html.TextBoxFor(model => model.Mail, new { @class = "form-control", placeholder = "Lütfen email adresinizi giriniz" })
+        @Html.ValidationMessageFor(model => model.Mail, "", new { @style = "color: red" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Açıklama")
+        @Html.TextAreaFor(model => model.Aciklama, new { @class = "form-control", placeholder = "Lütfen kendinizi anlatan bir açıklama giriniz" })
+        @Html.ValidationMessageFor(model => model.Aciklama, "", new { @style = "color: red" })
+    </div>
+    <div class="form-outline mb-4">
+        @Html.Label("Resim URL")
+        @Html.TextBoxFor(model => model.Resim, new { @class = "form-control", placeholder = "Lütfen resim url giriniz" })
+        @Html.ValidationMessageFor(model => model.Resim, "", new { @style = "color: red" })
+    </div>
+
+
+
+
+    <button data-mdb-ripple-init class="btn btn-success btn-block mb-4">Yeni Kişi Bilgisini Kaydet</button>
+
+</form>
+
+

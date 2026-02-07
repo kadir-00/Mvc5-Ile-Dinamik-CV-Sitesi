@@ -1,0 +1,88 @@
+﻿@using MvcCv.Models.Entity
+@model List<TblHakkimda>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2 style="text-align: center; font-weight: bold; color: #343a40;">Dinamik CV Sitesi Hakkımda Listesi Admin Paneli</h2>
+<br />
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title" style="color: #343a40;">Hakkımda Listesi</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+
+
+                                            <th>ID</th>
+                                            <th>Ad</th>
+                                            <th>Soyad</th>
+                                            <th>Adres</th>
+                                            <th>Telefon</th>
+                                            <th>Mail</th>
+                                            <th>Açıklama</th>
+                                            <th>Resim</th>
+                                            <th>Durum</th>
+                                            <th>Güncelle</th>
+                                            <th>Sil</th>
+                                            <th>Aktif Yap</th>
+                                            <th>Pasif Yap</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.ID</td>
+                                                <td>@item.Ad</td>
+                                                <td>@item.Soyad</td>
+                                                <td>@(item.Adres.Length > 30 ? item.Adres.Substring(0, 30) + "..." : item.Adres)</td>
+                                                <td>@item.Telefon</td>
+                                                <td>@item.Mail</td>
+                                                <td>@(item.Aciklama.Length > 50 ? item.Aciklama.Substring(0, 50) + "..." : item.Aciklama)</td>
+                                                <td>@item.Resim</td>
+                                                <td>@( item.Status == true ? "Aktif" : "Pasif" )</td>
+
+
+                                                <td style="width: 7%"><a href="/Hakkimda/HakkimdaGetir/@item.ID" class="btn btn-outline-info btn-sm"><i class="fas fa-pencil-alt" style="margin-right: 7px;"></i>Düzenle</a></td>
+
+                                                <td style="width: 5%"><a href="/Hakkimda/HakkimdaSil/@item.ID" class="btn btn-outline-danger btn-sm"><i class="fas fa-trash" style="margin-right: 7px;"></i>Sil</a></td>
+                                                <td><a href="/Hakkimda/MakeActive/@item.ID" class="btn btn-outline-success">Aktif</a></td>
+                                                <td><a href="/Hakkimda/MakePassive/@item.ID" class="btn btn-outline-secondary">Pasif</a></td>
+                                            </tr>
+                                        }
+
+
+                                    </tbody>
+                                </table>
+                                <br />
+                                <a href="/Hakkimda/HakkimdaEkle/" class="btn btn-success">Yeni Kişi Bilgisi Ekle</a>
+
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+</body>
+</html>

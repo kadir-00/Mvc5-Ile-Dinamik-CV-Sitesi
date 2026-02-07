@@ -1,0 +1,31 @@
+﻿@model MvcCv.Models.Entity.TblSosyalMedya
+
+@{
+    ViewBag.Title = "SosyalMedyaGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2 style="text-align: center; font-weight: bold; color: #343a40;">Sosyal Medya Bilgisi Güncelleme Paneli</h2>
+<br />
+<a href="/SosyalMedya/Index/" class="btn btn-primary" style="float: right;">Geri Dön</a>
+<br />
+
+
+<form method="post">
+
+    <div class="form-outline mb-4">
+        @Html.Label("Sosyal Medya Linki")
+        @Html.TextBoxFor(model => model.SosyalMedyaLink, new { @class = "form-control", placeholder = "Lütfen Sosyal Medya Linki giriniz" })
+        @Html.ValidationMessageFor(model => model.SosyalMedyaLink, "", new { @style = "color: red" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Icon")
+        @Html.TextBoxFor(model => model.Icon, new { @class = "form-control", placeholder = "Lütfen icon adı giriniz" })
+        @Html.ValidationMessageFor(model => model.Icon, "", new { @style = "color: red" })
+    </div>
+
+    <!-- Submit button -->
+    <button class="btn btn-success btn-block mb-4">Değişiklikleri Kaydet</button>
+</form>

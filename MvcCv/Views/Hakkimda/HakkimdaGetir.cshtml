@@ -1,0 +1,54 @@
+﻿@model MvcCv.Models.Entity.TblHakkimda
+
+@{
+    ViewBag.Title = "HakkimdaGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2 style="text-align: center; font-weight: bold; color: #343a40;">Hakkımda Güncelleme Paneli</h2>
+<br />
+<a href="/Hakkimda/Index/" class="btn btn-primary" style="float: right;">Geri Dön</a>
+<br />
+
+
+<form method="post" class="form-group">
+
+    <div class="form-outline mb-4">
+        @Html.Label("Ad")
+        @Html.TextBoxFor(model => model.Ad, new { @class = "form-control", placeholder = "Lütfen adınızı giriniz" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Soyad")
+        @Html.TextBoxFor(model => model.Soyad, new { @class = "form-control", placeholder = "Lütfen soyadınızı giriniz" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Adres")
+        @Html.TextBoxFor(model => model.Adres, new { @class = "form-control", placeholder = "Lütfen Adres giriniz" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Telefon Numarası")
+        @Html.TextBoxFor(model => model.Telefon, new { @class = "form-control", placeholder = "Lütfen telefon numaranızı giriniz" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Mail Adresi")
+        @Html.TextBoxFor(model => model.Mail, new { @class = "form-control", placeholder = "Lütfen email adresinizi giriniz" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Açıklama")
+        @Html.TextAreaFor(model => model.Aciklama, new { @class = "form-control", placeholder = "Lütfen kendinizi anlatan bir açıklama giriniz" })
+    </div>
+    <div class="form-outline mb-4">
+        @Html.Label("Resim URL")
+        @Html.TextBoxFor(model => model.Resim, new { @class = "form-control", placeholder = "Lütfen resim url giriniz" })
+    </div>
+
+
+    <button class="btn btn-success btn-block mb-4">Değişiklikleri Kaydet</button>
+
+</form>

@@ -1,0 +1,48 @@
+﻿@model MvcCv.Models.Entity.TblEgitimlerim
+
+@{
+    ViewBag.Title = "EgitimEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2 style="text-align: center; font-weight: bold; color: #343a40;">Yeni Eğitim Ekleme Paneli</h2>
+<br />
+<a href="/Egitim/Index/" class="btn btn-primary" style="float: right;">Geri Dön</a>
+
+<br />
+<form method="post" class="form-group">
+
+    <div class="form-outline mb-4">
+        @Html.Label("Bölüm - Meslek")
+        @Html.TextBoxFor(model => model.Baslik, new { @class = "form-control", placeholder = "Lütfen bölüm veya meslek giriniz" })
+        @Html.ValidationMessageFor(model => model.Baslik, "", new { @style = "color: red" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Okul - Kurum")
+        @Html.TextBoxFor(model => model.AltBaslik1, new { @class = "form-control", placeholder = "Lütfen okul veya kurum bilgisini giriniz" })
+        @Html.ValidationMessageFor(model => model.AltBaslik1, "", new { @style = "color: red" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Konum")
+        @Html.TextBoxFor(model => model.AltBaslik2, new { @class = "form-control", placeholder = "Lütfen konum bilgisini giriniz" })
+        @Html.ValidationMessageFor(model => model.AltBaslik2, "", new { @style = "color: red" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Genel Not Ortalaması")
+        @Html.TextBoxFor(model => model.GNO, new { @class = "form-control", placeholder = "Lütfen GNO bilgisini giriniz" })
+        @Html.ValidationMessageFor(model => model.GNO, "", new { @style = "color: red" })
+    </div>
+
+    <div class="form-outline mb-4">
+        @Html.Label("Başlangıç ve Bitiş Tarihi")
+        @Html.TextBoxFor(model => model.Tarih, new { @class = "form-control", placeholder = "Lütfen Başlangıç ve bitiş tarihlerini aa.yyyy formatında giriniz" })
+        @Html.ValidationMessageFor(model => model.Tarih, "", new { @style = "color: red" })
+    </div>
+
+    <button data-mdb-ripple-init class="btn btn-success btn-block mb-4">Yeni Eğitimi Kaydet</button>
+
+</form>
