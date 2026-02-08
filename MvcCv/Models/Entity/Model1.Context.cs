@@ -12,19 +12,19 @@ namespace MvcCv.Models.Entity
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     public partial class DbCvEntities : DbContext
     {
         public DbCvEntities()
-            : base("name=DbCvEntities")
+            : base("name=Context")
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<TblAdmin> TblAdmin { get; set; }
         public virtual DbSet<TblDeneyimlerim> TblDeneyimlerim { get; set; }
         public virtual DbSet<TblEgitimlerim> TblEgitimlerim { get; set; }
