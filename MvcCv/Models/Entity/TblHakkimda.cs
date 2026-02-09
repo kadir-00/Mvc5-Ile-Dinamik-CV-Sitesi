@@ -11,34 +11,16 @@ namespace MvcCv.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class TblHakkimda
     {
         public int ID { get; set; }
-        [Required(ErrorMessage = "Bu alaný boþ geçemezsiniz")]
-
         public string Ad { get; set; }
-        [Required(ErrorMessage = "Bu alaný boþ geçemezsiniz")]
-
         public string Soyad { get; set; }
-        [Required(ErrorMessage = "Bu alaný boþ geçemezsiniz")]
-
         public string Adres { get; set; }
-        [Required(ErrorMessage = "Bu alaný boþ geçemezsiniz")]
-
         public string Telefon { get; set; }
-        [Required(ErrorMessage = "Bu alaný boþ geçemezsiniz")]
-
         public string Mail { get; set; }
-        [Required(ErrorMessage = "Bu alaný boþ geçemezsiniz")]
-
         public string Aciklama { get; set; }
-        [Required(ErrorMessage = "Bu alaný boþ geçemezsiniz")]
-
         public string Resim { get; set; }
-
-
-        public Nullable<bool> Status { get; set; }
     }
 }

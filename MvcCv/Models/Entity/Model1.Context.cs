@@ -12,29 +12,26 @@ namespace MvcCv.Models.Entity
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
-    public partial class DbCvEntities : DbContext
+    
+    public partial class DbCV2Entities : DbContext
     {
-        public DbCvEntities()
-            : base("name=Context")
+        public DbCV2Entities()
+            : base("name=DbCV2Entities")
         {
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-
+    
         public virtual DbSet<TblAdmin> TblAdmin { get; set; }
         public virtual DbSet<TblDeneyimlerim> TblDeneyimlerim { get; set; }
         public virtual DbSet<TblEgitimlerim> TblEgitimlerim { get; set; }
         public virtual DbSet<TblHakkimda> TblHakkimda { get; set; }
         public virtual DbSet<TblHobilerim> TblHobilerim { get; set; }
-        public virtual DbSet<Tbliletisim> Tbliletisim { get; set; }
+        public virtual DbSet<TblIletisim> TblIletisim { get; set; }
         public virtual DbSet<TblSertifikalarim> TblSertifikalarim { get; set; }
-        public virtual DbSet<TblYeteneklerim> TblYeteneklerim { get; set; }
-        public virtual DbSet<TblProjelerim> TblProjelerim { get; set; }
-        public virtual DbSet<TblSosyalMedya> TblSosyalMedya { get; set; }
-        public virtual DbSet<TblIletisimBilgi> TblIletisimBilgi { get; set; }
+        public virtual DbSet<TblYetenekler> TblYetenekler { get; set; }
     }
 }

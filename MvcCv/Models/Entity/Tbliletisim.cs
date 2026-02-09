@@ -12,13 +12,13 @@ namespace MvcCv.Models.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Tbliletisim
+    public partial class TblIletisim
     {
         public int ID { get; set; }
-        public string Adsoyad { get; set; }
+        public string AdSoyad { get; set; }
         public string Mail { get; set; }
         public string Konu { get; set; }
         public string Mesaj { get; set; }
-        public Nullable<System.DateTime> Tarih { get; set; }
+        public string Tarih { get; set; }
     }
 }

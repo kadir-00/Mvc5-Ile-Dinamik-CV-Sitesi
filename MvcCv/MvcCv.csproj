@@ -176,22 +176,13 @@
     <Compile Include="Models\Entity\TblHobilerim.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entity\Tbliletisim.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Entity\TblIletisimBilgi.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Entity\TblProjelerim.cs">
+    <Compile Include="Models\Entity\TblIletisim.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\TblSertifikalarim.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Entity\TblSosyalMedya.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Entity\TblYeteneklerim.cs">
+    <Compile Include="Models\Entity\TblYetenekler.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2080,8 +2071,8 @@
     <Content Include="login-form-20\main.html" />
     <Content Include="Models\Entity\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Entity\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -2170,13 +2161,6 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Entity\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Entity\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="Osteriax-master\assets\fonts\fontawesome-webfont.eot" />
     <Content Include="Osteriax-master\assets\fonts\fontawesome-webfont.ttf" />
     <Content Include="Osteriax-master\assets\fonts\fontawesome-webfont.woff" />
@@ -2540,6 +2524,13 @@
     <Content Include="login-form-20\scss\bootstrap\_utilities.scss" />
     <Content Include="login-form-20\scss\bootstrap\_variables.scss" />
     <Content Include="login-form-20\scss\style.scss" />
+    <EntityDeploy Include="Models\Entity\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Entity\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

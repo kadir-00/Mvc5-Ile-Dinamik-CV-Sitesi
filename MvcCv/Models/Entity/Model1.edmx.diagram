@@ -4,18 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1c2ae973e94f472e8a86913ccb9103dd" Name="Diagram1">
-        <EntityTypeShape EntityType="DbCvModel.TblAdmin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbCvModel.TblDeneyimlerim" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbCvModel.TblEgitimlerim" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbCvModel.TblHakkimda" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbCvModel.TblHobilerim" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbCvModel.Tbliletisim" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbCvModel.TblSertifikalarim" Width="2.125" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbCvModel.TblYeteneklerim" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbCvModel.TblProjelerim" Width="1.5" PointX="8.625" PointY="3.875" />
-        <EntityTypeShape EntityType="DbCvModel.TblSosyalMedya" Width="1.5" PointX="5.375" PointY="6.75" />
-        <EntityTypeShape EntityType="DbCvModel.TblIletisimBilgi" Width="1.5" PointX="9.5" PointY="1.375" />
+      <Diagram DiagramId="e7fc29479f2746169aeca469a49af2c2" Name="Diagram1">
+        <EntityTypeShape EntityType="DbCV2Model.TblAdmin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbCV2Model.TblDeneyimlerim" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbCV2Model.TblEgitimlerim" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbCV2Model.TblHakkimda" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbCV2Model.TblHobilerim" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbCV2Model.TblIletisim" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbCV2Model.TblSertifikalarim" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbCV2Model.TblYetenekler" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

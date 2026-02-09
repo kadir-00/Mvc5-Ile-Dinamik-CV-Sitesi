@@ -11,25 +11,10 @@ namespace MvcCv.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class TblSertifikalarim
     {
         public int ID { get; set; }
-        [Required(ErrorMessage = "Bu alaný boþ geçemezsiniz")]
-
         public string Aciklama { get; set; }
-        [Required(ErrorMessage = "Bu alaný boþ geçemezsiniz")]
-
-        public string KursAd { get; set; }
-        [Required(ErrorMessage = "Bu alaný boþ geçemezsiniz")]
-
-        public string Teknolojiler { get; set; }
-        [Required(ErrorMessage = "Bu alaný boþ geçemezsiniz")]
-
-        public string Tarih { get; set; }
-        [Required(ErrorMessage = "Bu alaný boþ geçemezsiniz")]
-
-        public string SertifikaUrl { get; set; }
     }
 }

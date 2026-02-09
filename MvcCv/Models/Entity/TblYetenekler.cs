@@ -11,22 +11,10 @@ namespace MvcCv.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class TblIletisimBilgi
+    
+    public partial class TblYetenekler
     {
         public int ID { get; set; }
-        [Required(ErrorMessage = "Bu alaný boþ geçemezsiniz")]
-
-        public string AdSoyad { get; set; }
-        [Required(ErrorMessage = "Bu alaný boþ geçemezsiniz")]
-
-        public string Mail { get; set; }
-        [Required(ErrorMessage = "Bu alaný boþ geçemezsiniz")]
-
-        public string Telefon { get; set; }
-        [Required(ErrorMessage = "Bu alaný boþ geçemezsiniz")]
-
-        public string Konum { get; set; }
+        public string Yetenek { get; set; }
     }
 }

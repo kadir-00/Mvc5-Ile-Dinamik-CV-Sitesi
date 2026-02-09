@@ -11,16 +11,11 @@ namespace MvcCv.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class TblHobilerim
     {
         public int ID { get; set; }
-        [Required(ErrorMessage = "Bu alaný boþ geçemezsiniz")]
-
         public string Aciklama1 { get; set; }
-        [Required(ErrorMessage = "Bu alaný boþ geçemezsiniz")]
-
         public string Aciklama2 { get; set; }
     }
 }
