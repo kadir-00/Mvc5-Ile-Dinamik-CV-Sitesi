@@ -1,4 +1,4 @@
-﻿using MvcCv.Models.Entity;
+﻿using MvcCv.Models.Siniflar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +22,7 @@ namespace MvcCv.Controllers
         [HttpPost]
         public ActionResult Index(TblAdmin p)
         {
-            DbCvEntities db = new DbCvEntities();
+            Context db = new Context();
             var bilgi = db.TblAdmin.FirstOrDefault(x => x.KullaniciAdi == p.KullaniciAdi && x.Sifre == p.Sifre);
             if (bilgi != null)
             {

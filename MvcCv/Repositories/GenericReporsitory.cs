@@ -1,4 +1,4 @@
-﻿using MvcCv.Models.Entity;
+﻿using MvcCv.Models.Siniflar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +10,9 @@ namespace MvcCv.Repositories
     //Bu sınıf, CRUD (Create, Read, Update, Delete)
     //işlemlerini tüm veritabanı tabloları için genel bir
     //şekilde sağlayarak kod tekrarını azaltır ve uygulamanın bakımını kolaylaştırır.
-    public class GenericReporsitory<T> where T:class, new()
+    public class GenericReporsitory<T> where T : class, new()
     {
-        DbCvEntities db = new DbCvEntities();
+        Context db = new Context();
 
         public List<T> List()
         {
@@ -22,7 +22,7 @@ namespace MvcCv.Repositories
         }
 
         public void TAdd(T p) //ekleme
-        { 
+        {
             db.Set<T>().Add(p);
             db.SaveChanges();
             //TAdd metodu, T tipinde yeni bir nesneyi DbSet'e ekler ve db.SaveChanges() ile değişiklikleri veritabanına kaydeder.
@@ -42,7 +42,7 @@ namespace MvcCv.Repositories
         }
 
         public void TUpdate(T p)  //güncelleme
-        {        
+        {
             db.SaveChanges();
         }
 

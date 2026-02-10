@@ -1,4 +1,4 @@
-﻿using MvcCv.Models.Entity;
+﻿using MvcCv.Models.Siniflar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MvcCv.Repositories
 {
-    public class ProjeRepository : GenericReporsitory<TblProjelerim>
+    public class ProjeRepository : GenericReporsitory<Proje>
     {
     }
 }

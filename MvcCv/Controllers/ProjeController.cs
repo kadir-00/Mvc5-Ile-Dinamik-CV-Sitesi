@@ -1,4 +1,4 @@
-﻿using MvcCv.Models.Entity;
+﻿using MvcCv.Models.Siniflar;
 using MvcCv.Repositories;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ namespace MvcCv.Controllers
     public class ProjeController : Controller
     {
         // GET: Proje
-        GenericReporsitory<TblProjelerim> repo = new GenericReporsitory<TblProjelerim>();
+        GenericReporsitory<Proje> repo = new GenericReporsitory<Proje>();
 
         public ActionResult Index()
         {
@@ -26,7 +26,7 @@ namespace MvcCv.Controllers
         }
 
         [HttpPost]
-        public ActionResult ProjeEkle(TblProjelerim projects)
+        public ActionResult ProjeEkle(Proje projects)
         {
             if (!ModelState.IsValid)
             {
@@ -38,7 +38,7 @@ namespace MvcCv.Controllers
 
         public ActionResult ProjeSil(int id)
         {
-            TblProjelerim pr = repo.Find(x => x.ID == id);
+            Proje pr = repo.Find(x => x.ID == id);
             repo.TDelete(pr);
             return RedirectToAction("Index");
         }
@@ -46,22 +46,22 @@ namespace MvcCv.Controllers
         [HttpGet]
         public ActionResult ProjeGetir(int id)
         {
-            TblProjelerim some = repo.Find(x => x.ID == id);
+            Proje some = repo.Find(x => x.ID == id);
             return View(some);
         }
 
 
         [HttpPost]
-        public ActionResult ProjeGetir(TblProjelerim prj)
+        public ActionResult ProjeGetir(Proje prj)
         {
             if (!ModelState.IsValid)
             {
                 return View("ProjeGetir");
             }
-            TblProjelerim projects = repo.Find(x => x.ID == prj.ID);
-            projects.ProjeAd = prj.ProjeAd;
-            projects.ProjeLink = prj.ProjeLink;
-            projects.ProjeAciklama = prj.ProjeAciklama;
+            Proje projects = repo.Find(x => x.ID == prj.ID);
+            projects.ProjeAdi = prj.ProjeAdi;
+            projects.ProjeUrl = prj.ProjeUrl;
+            projects.Aciklama = prj.Aciklama;
 
             repo.TUpdate(projects);
             return RedirectToAction("Index");

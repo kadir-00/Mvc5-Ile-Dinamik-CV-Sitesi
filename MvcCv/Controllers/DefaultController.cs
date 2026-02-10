@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MvcCv.Models.Entity;
+using MvcCv.Models.Siniflar;
 
 namespace MvcCv.Controllers
 {
@@ -12,14 +13,14 @@ namespace MvcCv.Controllers
     {
         // GET: Default
 
-        DbCvEntities db = new DbCvEntities();   
+        Context db = new Context();
         public ActionResult Index()
         {
-            var degerler = db.TblHakkimda.Where(x => x.Status == true).ToList();  //status değeri true olanları uı tarafında göstercek yani aktif olanlar
+            var degerler = db.TblHakkimda.Where(x => x.Status == true).ToList();  //status değeri true olanları uı tarafında 
             return View(degerler);
         }
-        public PartialViewResult Deneyim() 
-        { 
+        public PartialViewResult Deneyim()
+        {
             var deneyimler = db.TblDeneyimlerim.ToList();
             return PartialView(deneyimler);
         }
@@ -66,10 +67,10 @@ namespace MvcCv.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult Iletisim(Tbliletisim iletisim)
+        public PartialViewResult Iletisim(TblIletisim iletisim)
         {
-            iletisim.Tarih= DateTime.Parse(DateTime.Now.ToShortDateString());
-             db.Tbliletisim.Add(iletisim);
+            iletisim.Tarih = DateTime.Parse(DateTime.Now.ToShortDateString());
+            db.Tbliletisim.Add(iletisim);
             db.SaveChanges();
             return PartialView();
         }

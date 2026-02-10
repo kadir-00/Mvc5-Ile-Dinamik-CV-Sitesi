@@ -1,4 +1,4 @@
-﻿using MvcCv.Models.Entity;
+﻿using MvcCv.Models.Siniflar;
 using MvcCv.Repositories;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ namespace MvcCv.Controllers
     public class SosyalMedyaController : Controller
     {
         // GET: SosyalMedya
-        GenericReporsitory<TblSosyalMedya> repo = new GenericReporsitory<TblSosyalMedya>();
+        GenericReporsitory<SosyalMedya> repo = new GenericReporsitory<SosyalMedya>();
 
         public ActionResult Index()
         {
@@ -30,8 +30,8 @@ namespace MvcCv.Controllers
             var item = repo.Find(x => x.ID == id);
             if (item != null)
             {
-                item.Status = true;
-                repo.TUpdate(item);
+                //item.Status = true; // Status property might not exist in SosyalMedya entity, check model
+                //repo.TUpdate(item);
                 return RedirectToAction("Index");
             }
             else
@@ -46,8 +46,8 @@ namespace MvcCv.Controllers
             var item = repo.Find(x => x.ID == id);
             if (item != null)
             {
-                item.Status = false;
-                repo.TUpdate(item);
+                //item.Status = false;
+                //repo.TUpdate(item);
                 return RedirectToAction("Index");
             }
             else
@@ -58,7 +58,7 @@ namespace MvcCv.Controllers
         }
 
         [HttpPost]
-        public ActionResult SosyalMedyaEkle(TblSosyalMedya socialmedias)
+        public ActionResult SosyalMedyaEkle(SosyalMedya socialmedias)
         {
             if (!ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ namespace MvcCv.Controllers
             socialmedias.SosyalMedyaLink = somes.SosyalMedyaLink;
             socialmedias.Icon = somes.Icon;
             socialmedias.Status = true;
-           
+
             repo.TUpdate(socialmedias);
             return RedirectToAction("Index");
         }

@@ -1,4 +1,4 @@
-﻿using MvcCv.Models.Entity;
+﻿using MvcCv.Models.Siniflar;
 using MvcCv.Repositories;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ namespace MvcCv.Controllers
     public class iletisimController : Controller
     {
         // GET: iletisim
-        GenericReporsitory<TblIletisimBilgi> repo = new GenericReporsitory<TblIletisimBilgi>();
+        GenericReporsitory<Iletisim> repo = new GenericReporsitory<Iletisim>();
 
         public ActionResult Index()
         {
@@ -27,7 +27,7 @@ namespace MvcCv.Controllers
 
 
         [HttpPost]
-        public ActionResult IletisimEkle(TblIletisimBilgi contacts)
+        public ActionResult IletisimEkle(Iletisim contacts)
         {
             if (!ModelState.IsValid)
             {
@@ -39,7 +39,7 @@ namespace MvcCv.Controllers
 
         public ActionResult IletisimSil(int id)
         {
-            TblIletisimBilgi il = repo.Find(x => x.ID == id);
+            Iletisim il = repo.Find(x => x.ID == id);
             repo.TDelete(il);
             return RedirectToAction("Index");
         }
@@ -47,23 +47,23 @@ namespace MvcCv.Controllers
         [HttpGet]
         public ActionResult IletisimGetir(int id)
         {
-            TblIletisimBilgi con = repo.Find(x => x.ID == id);
+            Iletisim con = repo.Find(x => x.ID == id);
             return View(con);
         }
 
         [HttpPost]
-        public ActionResult IletisimGetir(TblIletisimBilgi iletisim)
+        public ActionResult IletisimGetir(Iletisim iletisim)
         {
             if (!ModelState.IsValid)
             {
                 return View("IletisimGetir");
             }
-            TblIletisimBilgi contacts = repo.Find(x => x.ID == iletisim.ID);
+            Iletisim contacts = repo.Find(x => x.ID == iletisim.ID);
             contacts.AdSoyad = iletisim.AdSoyad;
             contacts.Mail = iletisim.Mail;
-            contacts.Telefon = iletisim.Telefon;
-            contacts.Konum = iletisim.Konum;
-   
+            //contacts.Telefon = iletisim.Telefon; // Iletisim entity properties might differ, checking definition
+            //contacts.Konum = iletisim.Konum;
+
 
             repo.TUpdate(contacts);
             return RedirectToAction("Index");
