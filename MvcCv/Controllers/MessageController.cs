@@ -11,7 +11,7 @@ namespace MvcCv.Controllers
     public class MessageController : Controller
     {
         // GET: Message
-        GenericReporsitory<Tbliletisim> repo = new GenericReporsitory<Tbliletisim>();
+        GenericReporsitory<TblIletisim> repo = new GenericReporsitory<TblIletisim>();
 
         public ActionResult Index()
         {
@@ -21,7 +21,7 @@ namespace MvcCv.Controllers
 
         public ActionResult MesajSil(int id)
         {
-            Tbliletisim iletisim = repo.Find(x => x.ID == id);
+            TblIletisim iletisim = repo.Find(x => x.ID == id);
             repo.TDelete(iletisim);
             return RedirectToAction("Index");
         }

@@ -11,7 +11,7 @@ namespace MvcCv.Controllers
     public class YetenekController : Controller
     {
         // GET: Yetenek
-        GenericReporsitory<TblYeteneklerim> repo = new GenericReporsitory<TblYeteneklerim>();
+        GenericReporsitory<TblYetenekler> repo = new GenericReporsitory<TblYetenekler>();
         public ActionResult Index()
         {
             var skills = repo.List();
@@ -26,7 +26,7 @@ namespace MvcCv.Controllers
 
 
         [HttpPost]
-        public ActionResult YetenekEkle(TblYeteneklerim skill)
+        public ActionResult YetenekEkle(TblYetenekler skill)
         {
             repo.TAdd(skill);
             return RedirectToAction("Index");
@@ -35,7 +35,7 @@ namespace MvcCv.Controllers
 
         public ActionResult YetenekSil(int id)
         {
-            TblYeteneklerim y = repo.Find(x => x.ID == id);
+            TblYetenekler y = repo.Find(x => x.ID == id);
             repo.TDelete(y);
             return RedirectToAction("Index");
         }
@@ -43,14 +43,14 @@ namespace MvcCv.Controllers
         [HttpGet]
         public ActionResult YetenekGetir(int id)
         {
-            TblYeteneklerim s = repo.Find(x => x.ID == id);
+            TblYetenekler s = repo.Find(x => x.ID == id);
             return View(s);
         }
 
         [HttpPost]
-        public ActionResult YetenekGetir(TblYeteneklerim s)
+        public ActionResult YetenekGetir(TblYetenekler s)
         {
-            TblYeteneklerim y = repo.Find(x => x.ID == s.ID);
+            TblYetenekler y = repo.Find(x => x.ID == s.ID);
             y.Yetenek = s.Yetenek;
             y.Oran = s.Oran;
            

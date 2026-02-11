@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MvcCv.Models.Entity;
-using MvcCv.Models.Siniflar;
+
 
 namespace MvcCv.Controllers
 {
@@ -13,10 +13,10 @@ namespace MvcCv.Controllers
     {
         // GET: Default
 
-        Context db = new Context();
+        DbCV2Entities db = new DbCV2Entities();
         public ActionResult Index()
         {
-            var degerler = db.TblHakkimda.Where(x => x.Status == true).ToList();  //status değeri true olanları uı tarafında 
+            var degerler = db.TblHakkimda.ToList();  //status değeri true olanları uı tarafında 
             return View(degerler);
         }
         public PartialViewResult Deneyim()
@@ -25,11 +25,11 @@ namespace MvcCv.Controllers
             return PartialView(deneyimler);
         }
 
-        public PartialViewResult SosyalMedya()
-        {
-            var sosyalmedya = db.TblSosyalMedya.Where(x => x.Status == true).ToList(); //status değeri true olanları uı tarafında göstercek yani aktif olanlar
-            return PartialView(sosyalmedya);
-        }
+        //public PartialViewResult SosyalMedya()
+        //{
+        //    var sosyalmedya = db.TblSosyalMedya.Where(x => x.Status == true).ToList(); //status değeri true olanları uı tarafında göstercek yani aktif olanlar
+        //    return PartialView(sosyalmedya);
+        //}
         public PartialViewResult Egitim()
         {
             var egitimler = db.TblEgitimlerim.ToList();
@@ -38,7 +38,7 @@ namespace MvcCv.Controllers
 
         public PartialViewResult Yetenek()
         {
-            var yetenekler = db.TblYeteneklerim.ToList();
+            var yetenekler = db.TblYetenekler.ToList();
             return PartialView(yetenekler);
         }
 
@@ -56,23 +56,23 @@ namespace MvcCv.Controllers
 
         public PartialViewResult Proje()
         {
-            var projeler = db.TblProjelerim.ToList();
+            var projeler = db.TblYetenekler.ToList();
             return PartialView(projeler);
         }
 
-        [HttpGet]
-        public PartialViewResult Iletisim()
-        {
-            return PartialView();
-        }
+        //[HttpGet]
+        //public PartialViewResult Iletisim()
+        //{
+        //    return PartialView();
+        //}
 
-        [HttpPost]
-        public PartialViewResult Iletisim(TblIletisim iletisim)
-        {
-            iletisim.Tarih = DateTime.Parse(DateTime.Now.ToShortDateString());
-            db.Tbliletisim.Add(iletisim);
-            db.SaveChanges();
-            return PartialView();
-        }
+        //[HttpPost]
+        //public PartialViewResult Iletisim(TblIletisim iletisim, DateTime dateTime)
+        //{
+        //    iletisim.Tarih = dateTime.Parse(DateTime.Now.ToShortDateString());
+        //    db.TblIletisim.Add(iletisim);
+        //    db.SaveChanges();
+        //    return PartialView();
+        //}
     }
 }

@@ -12,7 +12,7 @@ namespace MvcCv.Controllers
     public class SosyalMedyaController : Controller
     {
         // GET: SosyalMedya
-        GenericReporsitory<SosyalMedya> repo = new GenericReporsitory<SosyalMedya>();
+        GenericReporsitory<TblSosyalMedya> repo = new GenericReporsitory<TblSosyalMedya>();
 
         public ActionResult Index()
         {
@@ -58,7 +58,7 @@ namespace MvcCv.Controllers
         }
 
         [HttpPost]
-        public ActionResult SosyalMedyaEkle(SosyalMedya socialmedias)
+        public ActionResult SosyalMedyaEkle(TblSosyalMedya socialmedias)
         {
             if (!ModelState.IsValid)
             {

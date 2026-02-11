@@ -11,7 +11,7 @@ namespace MvcCv.Controllers
     public class ProjeController : Controller
     {
         // GET: Proje
-        GenericReporsitory<Proje> repo = new GenericReporsitory<Proje>();
+        GenericReporsitory<TblProjelerim> repo = new GenericReporsitory<TblProjelerim>();
 
         public ActionResult Index()
         {
@@ -26,7 +26,7 @@ namespace MvcCv.Controllers
         }
 
         [HttpPost]
-        public ActionResult ProjeEkle(Proje projects)
+        public ActionResult ProjeEkle(TblProjelerim projects)
         {
             if (!ModelState.IsValid)
             {
@@ -38,7 +38,7 @@ namespace MvcCv.Controllers
 
         public ActionResult ProjeSil(int id)
         {
-            Proje pr = repo.Find(x => x.ID == id);
+            TblProjelerim pr = repo.Find(x => x.ID == id);
             repo.TDelete(pr);
             return RedirectToAction("Index");
         }
@@ -46,19 +46,19 @@ namespace MvcCv.Controllers
         [HttpGet]
         public ActionResult ProjeGetir(int id)
         {
-            Proje some = repo.Find(x => x.ID == id);
+            TblProjelerim some = repo.Find(x => x.ID == id);
             return View(some);
         }
 
 
         [HttpPost]
-        public ActionResult ProjeGetir(Proje prj)
+        public ActionResult ProjeGetir(TblProjelerim prj)
         {
             if (!ModelState.IsValid)
             {
                 return View("ProjeGetir");
             }
-            Proje projects = repo.Find(x => x.ID == prj.ID);
+            TblProjelerim projects = repo.Find(x => x.ID == prj.ID);
             projects.ProjeAdi = prj.ProjeAdi;
             projects.ProjeUrl = prj.ProjeUrl;
             projects.Aciklama = prj.Aciklama;

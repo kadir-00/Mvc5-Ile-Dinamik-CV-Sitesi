@@ -100,7 +100,7 @@ namespace MvcCv.Controllers
             abouts.Mail = about.Mail;
             abouts.Aciklama = about.Aciklama;
             abouts.Resim = about.Resim;
-            abouts.Status = true;
+            abouts.Status = true; 
 
             repo.TUpdate(abouts);
             return RedirectToAction("Index");

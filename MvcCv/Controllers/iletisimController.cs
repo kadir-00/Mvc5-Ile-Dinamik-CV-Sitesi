@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace MvcCv.Controllers
 {
-    public class iletisimController : Controller
+    public class IletisimController : Controller
     {
         // GET: iletisim
         GenericReporsitory<Iletisim> repo = new GenericReporsitory<Iletisim>();
